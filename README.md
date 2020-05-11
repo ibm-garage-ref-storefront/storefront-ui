@@ -43,8 +43,7 @@ Here is an overview of the project's features:
     + [`helm`](https://docs.helm.sh/using_helm/#installing-helm)
 * Clone web repository:
 ```bash
-$ git clone -b spring --single-branch https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web.git
-$ cd refarch-cloudnative-bluecompute-web
+$ git clone  https://github.com/ibm-garage-ref-storefront/storefront-ui
 ```
 
 ## Deploy Web Application to Kubernetes Cluster
