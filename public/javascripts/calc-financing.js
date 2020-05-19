@@ -53,4 +53,4 @@
   };
 
 }
-(this, this.document));
+(this, document));

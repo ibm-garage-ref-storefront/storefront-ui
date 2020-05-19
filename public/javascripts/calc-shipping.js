@@ -1,8 +1,7 @@
 (function (window, document) {
 
   var xhttp_getShippingRates = new XMLHttpRequest();
-  var xhttp_getStoreLocation = new XMLHttpRequest();
-
+  
   var zip_code = document.getElementById('cs_zip_code');
   var submit_bttn = document.getElementById('cs_submit');
   var shipping_info_section = document.getElementById('shipping-info-section');
@@ -63,4 +62,4 @@
   };
 
 }
-(this, this.document));
+(this, document));
