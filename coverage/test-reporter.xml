@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+    <file path="/Users/Oscar.Ricaud@ibm.com/Documents/playback/github.com/refarch-cloudnative-bluecompute-web-appsody/src/test/index.test.js">
+        <testCase name="Basic Mocha String Test should return first charachter of the string" duration="1"/>
+    </file>
+</testExecutions>
