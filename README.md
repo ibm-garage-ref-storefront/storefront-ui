@@ -284,9 +284,6 @@ Now save the file and you should be good to go.
 ### Start the Web Application
 
 ```bash
-# Navigate to source folder
-cd StoreWebApp;
-
 # Install NPM and Bower dependencies
 npm install;
 
