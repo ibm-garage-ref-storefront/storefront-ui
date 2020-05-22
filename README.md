@@ -28,7 +28,7 @@ The sample Web application is built to demonstrate how to access the Omnichannel
 
 ![Application Architecture](static/imgs/2_catalog.png?raw=true)
 
-Here is an overview of the project's features:
+Here is an overview of the project's features
 - AngularJS SPA.
 - Node.js based BFF application to access APIs.
 - Authentication and Authorization through OAuth 2.0.
