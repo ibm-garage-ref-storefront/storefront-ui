@@ -295,6 +295,19 @@ Assuming everything was deployed correctly, you can follow the instructions in [
 
 That's it, you have successfully deployed and tested the Web microservice locally.
 
+### Run the Inventory application
+
+- After your project has been initialized you can then run your application using the following command:
+
+```
+appsody run 
+```
+
+Connect to the application in your browser: http://localhost:8080
+
+This launches a Docker container that continuously re-builds and re-runs your project. 
+You can continue to edit the application in your preferred IDE (VSCode or other) and your changes will be reflected in the running container within a few seconds.
+
 ## Optional: Setup CI/CD Pipeline
 If you would like to setup an automated Jenkins CI/CD Pipeline for this repository, we provided a sample [Jenkinsfile](Jenkinsfile), which uses the [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/) syntax of the [Jenkins Kubernetes Plugin](https://github.com/jenkinsci/kubernetes-plugin) to automatically create and run Jenkis Pipelines from your Kubernetes environment. 
 
