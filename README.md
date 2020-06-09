@@ -284,6 +284,9 @@ Now save the file and you should be good to go.
 ### Start the Web Application
 
 ```bash
+# Navigate to source folder
+cd StoreWebApp;
+
 # Install NPM and Bower dependencies
 npm install;
 
@@ -326,6 +329,4 @@ If you would like to contribute to this repository, please fork it, submit a PR,
 ### Contributing a New Chart Package to Microservices Reference Architecture Helm Repository
 To contribute a new chart version to the [Microservices Reference Architecture](https://github.com/ibm-cloud-architecture/refarch-cloudnative-kubernetes/tree/spring) helm repository, follow its guide here:
 * https://github.com/ibm-cloud-architecture/refarch-cloudnative-kubernetes/tree/spring#contributing-a-new-chart-to-the-helm-repositories
-
-
 
