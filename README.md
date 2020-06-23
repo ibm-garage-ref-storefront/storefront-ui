@@ -28,7 +28,7 @@ The sample Web application is built to demonstrate how to access the Omnichannel
 
 ![Application Architecture](static/imgs/2_catalog.png?raw=true)
 
-Here is an overview of the project's features:
+Here is an overview of the project's features
 - AngularJS SPA.
 - Node.js based BFF application to access APIs.
 - Authentication and Authorization through OAuth 2.0.
@@ -284,6 +284,9 @@ Now save the file and you should be good to go.
 ### Start the Web Application
 
 ```bash
+# Navigate to source folder
+cd StoreWebApp;
+
 # Install NPM and Bower dependencies
 npm install;
 
@@ -339,6 +342,4 @@ If you would like to contribute to this repository, please fork it, submit a PR,
 ### Contributing a New Chart Package to Microservices Reference Architecture Helm Repository
 To contribute a new chart version to the [Microservices Reference Architecture](https://github.com/ibm-cloud-architecture/refarch-cloudnative-kubernetes/tree/spring) helm repository, follow its guide here:
 * https://github.com/ibm-cloud-architecture/refarch-cloudnative-kubernetes/tree/spring#contributing-a-new-chart-to-the-helm-repositories
-
-
 

@@ -1,0 +1,77 @@
+apiVersion: appsody.dev/v1beta1
+kind: AppsodyApplication
+metadata:
+  annotations:
+    architecture: x86_64
+    authoritative-source-url: registry.access.redhat.com
+    build-date: 2020-04-09T10:02:05.547594
+    commit.image.appsody.dev/author: Hemankita Perabathini <hperabat@in.ibm.com>
+    commit.image.appsody.dev/committer: Hemankita Perabathini <hperabat@in.ibm.com>
+    commit.image.appsody.dev/date: Tue May 19 16:56:57 2020 +0530
+    commit.image.appsody.dev/message: modify default port
+    commit.stack.appsody.dev/contextDir: /incubator/nodejs
+    commit.stack.appsody.dev/date: Thu May 14 09:37:35 2020 +0100
+    commit.stack.appsody.dev/message: 'Merge pull request #340 from groeges/release-0.9-codewind'
+    description: This image contains the Kabanero development stack for the Nodejs
+      collection
+    distribution-scope: public
+    help: For more information visit https://github.com/sclorg/s2i-nodejs-container
+    image.opencontainers.org/created: "2020-05-19T16:57:51+05:30"
+    image.opencontainers.org/documentation: https://github.com/ibm-garage-ref-storefront/storefront-ui
+    image.opencontainers.org/revision: bf5c502b1b13c87ae087b76d2d504d7fca5ae231-not-pushed
+    image.opencontainers.org/source: https://github.com/ibm-garage-ref-storefront/storefront-ui/tree/deploy
+    image.opencontainers.org/url: https://github.com/ibm-garage-ref-storefront/storefront-ui
+    k8s.io/description: Node.js 12 available as container is a base platform for building
+      and running various Node.js 12 applications and frameworks. Node.js is a platform
+      built on Chrome's JavaScript runtime for easily building fast, scalable network
+      applications. Node.js uses an event-driven, non-blocking I/O model that makes
+      it lightweight and efficient, perfect for data-intensive real-time applications
+      that run across distributed devices.
+    k8s.io/display-name: Node.js 12
+    maintainer: SoftwareCollections.org <sclorg@redhat.com>
+    name: kabanero/nodejs
+    openshift.io/expose-services: 8080:http
+    openshift.io/tags: builder,nodejs,nodejs12
+    redhat.com/build-host: cpt-1004.osbs.prod.upshift.rdu2.redhat.com
+    redhat.com/component: nodejs-12-container
+    redhat.com/deployments-dir: /opt/app-root/src
+    redhat.com/dev-mode: DEV_MODE:false
+    redhat.com/dev-mode.port: DEBUG_PORT:5858
+    redhat.com/license_terms: https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI
+    release: "36"
+    s2i.io/scripts-url: image:///usr/libexec/s2i
+    s2i.openshift.io/scripts-url: image:///usr/libexec/s2i
+    stack.appsody.dev/authors: Sam Roberts <sam-github>
+    stack.appsody.dev/configured: docker.io/kabanero/nodejs:0.3
+    stack.appsody.dev/created: "2020-05-19T07:17:02Z"
+    stack.appsody.dev/description: Runtime for Node.js applications
+    stack.appsody.dev/documentation: https://github.com/kabanero-io/collections/tree/master/incubator/nodejs/README.md
+    stack.appsody.dev/licenses: Apache-2.0
+    stack.appsody.dev/revision: 104bb146d0d770e30886b845d7fca9311d54ed20
+    stack.appsody.dev/source: https://github.com/kabanero-io/collections/tree/master/incubator/nodejs/image
+    stack.appsody.dev/tag: docker.io/kabanero/nodejs:0.3.6
+    stack.appsody.dev/title: Node.js
+    stack.appsody.dev/url: https://github.com/kabanero-io/collections/tree/master/incubator/nodejs
+    summary: Image for Kabanero Nodejs development
+    url: https://access.redhat.com/containers/#/registry.access.redhat.com/ubi8/nodejs-12/images/1-36
+    usage: s2i build <SOURCE-REPOSITORY> ubi8/nodejs-12:latest <APP-NAME>
+    vcs-ref: 9a85b86edcc6c765692f15311abe259b0f9997b2
+    vcs-type: git
+    vendor: Kabanero
+    version: 0.3.6
+  creationTimestamp: null
+  labels:
+    image.opencontainers.org/title: web
+    stack.appsody.dev/id: nodejs
+    stack.appsody.dev/version: 0.3.6
+  name: web
+  namespace: storefront-dev
+spec:
+  applicationImage: docker.io/ibmcase/storefront-ui
+  createKnativeService: false
+  expose: true
+  service:
+    port: 3000
+    type: NodePort
+  stack: nodejs
+  version: 1.0.0

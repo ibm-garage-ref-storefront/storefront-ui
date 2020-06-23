@@ -13,7 +13,6 @@ var index = require('./routes/index');
 var catalog = require('./routes/catalog');
 var review = require('./routes/review');
 var customer = require('./routes/customer');
-//var images = require('./routes/images');
 var orders = require('./routes/orders');
 var auth = require('./routes/auth');
 
@@ -40,7 +39,6 @@ app.use('/catalog', catalog);
 app.use('/customer', customer);
 app.use('/review', review);
 app.use('/oauth', auth);
-//app.use('/image', images);
 app.use('/order', orders);
 
 app.use('/', express.static('public/resources'));
