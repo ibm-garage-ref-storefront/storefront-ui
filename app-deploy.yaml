@@ -65,7 +65,7 @@ metadata:
     stack.appsody.dev/id: nodejs
     stack.appsody.dev/version: 0.3.6
   name: storefront-ui
-  namespace: storefront
+  namespace: storefront-dev
 spec:
   applicationImage: docker.io/ibmcase/storefront-ui-hk
   createKnativeService: false
