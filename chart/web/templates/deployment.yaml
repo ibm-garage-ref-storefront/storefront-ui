@@ -1,0 +1,50 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "web.fullname" . }}
+  labels:
+    {{- include "web.labels" . | indent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        {{- include "web.labels" . | indent 8 }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name | quote }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config
+        ports:
+        - containerPort: {{ .Values.service.internalPort }}
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: {{ .Values.service.managementPort }}
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          failureThreshold: 6
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: {{ .Values.service.managementPort }}
+          initialDelaySeconds: 35
+          periodSeconds: 20
+          failureThreshold: 6
+        resources:
+        {{- include "web.resources" . | indent 10 }}
+        securityContext:
+        {{- include "web.securityContext" . | indent 10 }}
+      volumes:
+      - name: config-volume
+        configMap:
+          name: {{ template "web.fullname" . }}-config
+          items:
+          - key: checks
+            path: checks
+          - key: default.json
+            path: default.json

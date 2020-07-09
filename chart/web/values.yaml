@@ -1,0 +1,98 @@
+replicaCount: 1
+
+image:
+  repository: ibmcase/bluecompute-web
+  tag: 0.6.0
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  externalPort: 80
+  internalPort: 8000
+  managementPort: 9000
+  nodePort: 31337
+
+ingress:
+  enabled: false
+  hostname: #web.bluecompute.com
+  path: /
+  annotations:
+    ingress.bluemix.net/redirect-to-https: "True"
+  enableTLS: false
+  TLS:
+  - secretName: web.bluecompute.com
+    hosts:
+      - web.bluecompute.com
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+cluster:
+  name:
+  region:
+
+services:
+  auth:
+    protocol: http
+    host:
+    port:
+  catalog:
+    protocol: http
+    host:
+    port:
+  customer:
+    protocol: http
+    host:
+    port:
+  orders:
+    protocol: http
+    host:
+    port:
+  reviews:
+    protocol: http
+    host:
+    port:
+
+labels:
+  app: web
+  version: v1
+  tier: frontend
+
+securityContext:
+  runAsUser: 2000
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+
+global:
+  cluster:
+    name:
+    region:
+  istio:
+    enabled:
+    gateway:
+      name:
+
+istio:
+  enabled: false
+  # ISTIO_MUTUAL, SIMPLE, DISABLE
+  mTLS: ISTIO_MUTUAL
+  # LEAST_CONN, ROUND_ROBIN
+  loadBalancer: LEAST_CONN
+  gateway:
+    enabled: false
+    name:
+    hosts:
+      - "web.bluecompute.com"
+    TLS:
+      enabled: false
+      # SIMPLE, MUTUAL
+      mode: SIMPLE
+      httpsRedirect: false
+      serverCertificate: /etc/istio/ingressgateway-certs/tls.crt
+      privateKey: /etc/istio/ingressgateway-certs/tls.key
+      caCertificates: /etc/istio/ingressgateway-ca-certs/ca-chain.cert.pem
