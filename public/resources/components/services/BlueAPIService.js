@@ -73,8 +73,8 @@ app.service('BlueAPIService',['$http', 'CONFIG', '$base64', function($http, CONF
 			},
 			loginUser : function(parameters, successCallback, errorCallback) {
 				// where port 8080=auth microservice
-				var restUrl = 'http://localhost:8080/oauth/token'
-				//var restUrl = 'oauth/token'
+				//var restUrl = 'http://localhost:8080/oauth/token'
+				var restUrl = 'oauth/token'
 				var requestType = 'POST';
 				invokeService(restUrl, requestType, parameters, successCallback, errorCallback);
 			},
@@ -90,7 +90,8 @@ app.service('BlueAPIService',['$http', 'CONFIG', '$base64', function($http, CONF
 			},
 			getCustomerProfile : function(access_token, successCallback, errorCallback) {
 				// where port 8080=auth microservice
-				var restUrl = 'http://localhost:8080/customer'
+				//var restUrl = 'http://localhost:8080/customer'
+				var restUrl = 'customer'
 				var requestType = 'GET_AUTH';
 				invokeService(restUrl, requestType, null, successCallback, errorCallback, access_token);
 			},
