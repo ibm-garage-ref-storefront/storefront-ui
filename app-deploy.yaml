@@ -64,10 +64,10 @@ metadata:
     image.opencontainers.org/title: web
     stack.appsody.dev/id: nodejs
     stack.appsody.dev/version: 0.3.6
-  name: storefront-ui
-  namespace: storefront
+  name: web
+  namespace: storefront-dev
 spec:
-  applicationImage: docker.io/ibmcase/storefront-ui-hk
+  applicationImage: index.docker.io/ibmcase/storefront-ui
   createKnativeService: false
   expose: true
   service:
@@ -75,5 +75,3 @@ spec:
     type: NodePort
   stack: nodejs
   version: 1.0.0
-
-
