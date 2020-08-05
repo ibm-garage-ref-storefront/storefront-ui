@@ -1,6 +1,7 @@
 # Angular.JS Single Page Application with Node.JS backend
 [![Build Status](https://travis-ci.org/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web.svg?branch=spring)](https://travis-ci.org/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web)
 
+
 *This project is part of the 'IBM Cloud Native Reference Architecture' suite, available at
 https://cloudnativereference.dev/*
 
