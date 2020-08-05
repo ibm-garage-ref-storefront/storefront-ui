@@ -53,6 +53,7 @@ In order for the Web Application to fully work, you will need to do the followin
 
 Note that you will need a cluster with about 8GB of available RAM to be able to deploy all of the microservices and also run the web application.
 
+
 ### Setup: Install Microservice Charts
 The main benefit of leveraging the microservice helm charts is that the charts will take care of things such as initializing the database and checking that their dependency charts (i.e. MySQL, CouchDB, and Elasticsearch) are fully up and running before starting themselves.
 
