@@ -42,7 +42,7 @@
     },
     "oauth20": {
       "protocol": "http",
-      "service_name": "auth:8083",
+      "service_name": "localhost:8080",
       "base_path": "/oauth",
       "paths": {
         "authz": "/authorize",
