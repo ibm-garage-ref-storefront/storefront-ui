@@ -1,6 +1,7 @@
 # Angular.JS Single Page Application with Node.JS backend
 [![Build Status](https://travis-ci.org/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web.svg?branch=spring)](https://travis-ci.org/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web)
 
+
 *This project is part of the 'IBM Cloud Native Reference Architecture' suite, available at
 https://cloudnativereference.dev/*
 
@@ -52,6 +53,7 @@ In order for the Web Application to fully work, you will need to do the followin
 * Install the web chart and set the endpoints for the microservices.
 
 Note that you will need a cluster with about 8GB of available RAM to be able to deploy all of the microservices and also run the web application.
+
 
 ### Setup: Install Microservice Charts
 The main benefit of leveraging the microservice helm charts is that the charts will take care of things such as initializing the database and checking that their dependency charts (i.e. MySQL, CouchDB, and Elasticsearch) are fully up and running before starting themselves.
@@ -342,4 +344,5 @@ If you would like to contribute to this repository, please fork it, submit a PR,
 ### Contributing a New Chart Package to Microservices Reference Architecture Helm Repository
 To contribute a new chart version to the [Microservices Reference Architecture](https://github.com/ibm-cloud-architecture/refarch-cloudnative-kubernetes/tree/spring) helm repository, follow its guide here:
 * https://github.com/ibm-cloud-architecture/refarch-cloudnative-kubernetes/tree/spring#contributing-a-new-chart-to-the-helm-repositories
+
 
