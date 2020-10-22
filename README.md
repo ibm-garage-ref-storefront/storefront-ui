@@ -339,8 +339,6 @@ If you would like to contribute to this repository, please fork it, submit a PR,
 2. We don't deploy all of the other microservices locally due to Travis CI only giving 4GB of memory and we need 6-8GB to test the whole thing.
     * Perhaps this can be improved upon in the future.
 
-### Contributing a New Chart Package to Microservices Reference Architecture Helm Repository
-To contribute a new chart version to the [Microservices Reference Architecture](https://github.com/ibm-cloud-architecture/refarch-cloudnative-kubernetes/tree/spring) helm repository, follow its guide here:
-* https://github.com/ibm-cloud-architecture/refarch-cloudnative-kubernetes/tree/spring#contributing-a-new-chart-to-the-helm-repositories
+
 
 
