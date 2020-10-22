@@ -326,18 +326,7 @@ To see the Web app working in a more complex microservices use case, checkout ou
 If you would like to contribute to this repository, please fork it, submit a PR, and assign as reviewers any of the GitHub users listed here:
 * https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web/graphs/contributors
 
-### GOTCHAs
-1. We use [Travis CI](https://travis-ci.org/) for our CI/CD needs, so when you open a Pull Request you will trigger a build in Travis CI, which needs to pass before we consider merging the PR. We use Travis CI to test the following:
-    * Building and running the Web app and run API tests.
-    * Build and Deploy a Docker Container.
-    * Run API tests against the Docker Container.
-    * Deploy a minikube cluster to test Helm charts.
-    * Package the Helm chart.
-    * Deploy the Helm Chart into Minikube.
-    * Run API tests against the Helm Chart.
 
-2. We don't deploy all of the other microservices locally due to Travis CI only giving 4GB of memory and we need 6-8GB to test the whole thing.
-    * Perhaps this can be improved upon in the future.
 
 
 
