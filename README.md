@@ -310,7 +310,6 @@ You can continue to edit the application in your preferred IDE (VSCode or other)
 
 ## Optional: Setup CI/CD Pipeline
 
-
 To learn how to use this sample pipeline, follow the guide below and enter the corresponding values for your environment and for this repository:
 * https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops-kubernetes
 
