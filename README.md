@@ -309,7 +309,7 @@ This launches a Docker container that continuously re-builds and re-runs your pr
 You can continue to edit the application in your preferred IDE (VSCode or other) and your changes will be reflected in the running container within a few seconds.
 
 ## Optional: Setup CI/CD Pipeline
-If you would like to setup an automated Jenkins CI/CD Pipeline for this repository, we provided a sample [Jenkinsfile](Jenkinsfile), which uses the [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/) syntax of the [Jenkins Kubernetes Plugin](https://github.com/jenkinsci/kubernetes-plugin) to automatically create and run Jenkis Pipelines from your Kubernetes environment. 
+
 
 To learn how to use this sample pipeline, follow the guide below and enter the corresponding values for your environment and for this repository:
 * https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops-kubernetes
