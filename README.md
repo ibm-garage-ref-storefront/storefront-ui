@@ -318,7 +318,7 @@ To learn how to use this sample pipeline, follow the guide below and enter the c
 
 You have successfully deployed and tested the Web Microservice on a Kubernetes Cluster and in local Docker Containers.
 
-To see the Web app working in a more complex microservices use case, checkout our Microservice Reference Architecture Application [here](https://github.com/ibm-cloud-architecture/refarch-cloudnative-kubernetes/tree/spring).
+To see the Web app working in a more complex microservices use case, checkout our Microservice Reference Architecture Application [here](https://cloudnativereference.dev/).
 
 
 
