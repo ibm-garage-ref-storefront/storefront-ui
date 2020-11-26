@@ -10,14 +10,14 @@
   "APIs": {
     "catalog": {
       "protocol": "http",
-      "service_name": "catalog-ms-spring:8080",
+      "service_name": "host.docker.internal:9082",
       "base_path": "/micro",
       "require": [
       ]
     },
     "orders": {
-      "protocol": "http",
-      "service_name": "orders-ms-spring:8080",
+      "protocol": "https",
+      "service_name": "host.docker.internal:9445",
       "base_path": "/micro",
       "require": [
         "oauth"
@@ -30,20 +30,34 @@
         "oauth"
       ]
     },
-    "customer": {
-      "protocol": "http",
-      "service_name": "customer-ms-spring:8080",
+    "customerService": {
+      "protocol": "https",
+      "service_name": "host.docker.internal:9446",
       "base_path": "/micro",
+      "paths": {
+        "customer": "/customer"
+      },
       "require": [
-        "client_id",
+          "oauth"
+      ],
+      "redirect_url": "http://localhost"
+    },
+    "customer": {
+      "protocol": "https",
+      "service_name": "host.docker.internal:9444",
+      "base_path": "/oidc/endpoint/OP",
+      "paths": {
+        "userinfo": "/userinfo"
+      },
+      "require": [
         "oauth"
-
-      ]
+      ],
+      "redirect_url": "http://localhost"
     },
     "oauth20": {
-      "protocol": "http",
-      "service_name": "auth-ms-spring:8080",
-      "base_path": "/oauth",
+      "protocol": "https",
+      "service_name": "host.docker.internal:9444",
+      "base_path": "/oidc/endpoint/OP",
       "paths": {
         "authz": "/authorize",
         "token": "/token"
