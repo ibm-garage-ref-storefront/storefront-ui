@@ -5,8 +5,8 @@ metadata:
     architecture: x86_64
     authoritative-source-url: registry.access.redhat.com
     build-date: 2020-04-09T10:02:05.547594
-    commit.image.appsody.dev/date: Fri Oct 23 22:32:37 2020 +0530
-    commit.image.appsody.dev/message: Update README.md
+    commit.image.appsody.dev/date: Thu Nov 26 20:29:35 2020 +0530
+    commit.image.appsody.dev/message: 'Merge pull request #21 from ibm-garage-ref-storefront/profile-fixes'
     commit.stack.appsody.dev/contextDir: /incubator/nodejs
     commit.stack.appsody.dev/date: Thu May 14 09:37:35 2020 +0100
     commit.stack.appsody.dev/message: 'Merge pull request #340 from groeges/release-0.9-codewind'
@@ -14,9 +14,9 @@ metadata:
       collection
     distribution-scope: public
     help: For more information visit https://github.com/sclorg/s2i-nodejs-container
-    image.opencontainers.org/created: "2020-11-26T20:02:54+05:30"
+    image.opencontainers.org/created: "2021-01-07T16:07:56+05:30"
     image.opencontainers.org/documentation: https://github.com/ibm-garage-ref-storefront/storefront-ui
-    image.opencontainers.org/revision: 7d831d6830dbcaa244a11554ad22cc2e897cdbac-modified
+    image.opencontainers.org/revision: 5d3bf186c5efe68bf8ab799634ad7c020fbb290b-modified
     image.opencontainers.org/source: https://github.com/ibm-garage-ref-storefront/storefront-ui/tree/master
     image.opencontainers.org/url: https://github.com/ibm-garage-ref-storefront/storefront-ui
     k8s.io/description: Node.js 12 available as container is a base platform for building

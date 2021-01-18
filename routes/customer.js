@@ -4,34 +4,93 @@ var http = require('request-promise-json');
 var Promise = require('promise');
 var UrlPattern = require('url-pattern');
 var config = require('config');
+var utils = require('./utils');
 
 var session;
-var api_url = new UrlPattern('(:protocols)\\://(:host)(:api)/(:operation)');
+var page_filter;
+var api_url = new UrlPattern('(:protocol)\\://(:host)(:api)/(:operation)');
+// MicroProfile
+// var api_url = new UrlPattern('(:protocols)\\://(:host)(:api)/(:operation)');
 var _apis = config.get('APIs');
-var _authServer = config.get('Auth-Server');
+// MicroProfile
+// var _authServer = config.get('Auth-Server');
 
+/* GET Catalog listing from API and return JSON */
+router.get('/', function(req, res) {
+    session = req.session;
 
+    //page_filter = (typeof req.query.filter !== 'undefined') ? JSON.stringify(req.query.filter.order) : false;
+    page_filter = "";
 
+    setGetCustomerOptions(req, res)
+        .then(sendApiReq)
+        .then(sendResponse)
+        .catch(renderErrorPage)
+        .done();
+});
+
+// MicroProfile
 /* Handle the Get request*/
-router.get('/userinfo', function (req, res) {
-  session = req.session;
-  setCustomerOptions(req, res)
-    .then(sendApiReq)
-    .then(sendResponse)
-    .catch(renderErrorPage)
-    .done();
+// router.get('/userinfo', function (req, res) {
+//   session = req.session;
+//   setCustomerOptions(req, res)
+//     .then(sendApiReq)
+//     .then(sendResponse)
+//     .catch(renderErrorPage)
+//     .done();
+//
+// });
+//
+// router.get('/rest', function (req, res) {
+//   session = req.session;
+//   setCustomerOptionsFromCustomerMicroService(req, res)
+//     .then(sendApiReq)
+//     .then(sendResponse)
+//     .catch(renderErrorPage)
+//     .done();
+//
+// });
 
-});
+function setGetCustomerOptions(req, res) {
+    var query = req.query;
 
-router.get('/rest', function (req, res) {
-  session = req.session;
-  setCustomerOptionsFromCustomerMicroService(req, res)
-    .then(sendApiReq)
-    .then(sendResponse)
-    .catch(renderErrorPage)
-    .done();
+    var customer_url = api_url.stringify({
+        protocol: utils.getProtocol(_apis.customer.protocol),
+        host: _apis.customer.service_name,
+        api: _apis.customer.base_path,
+        operation: "customer"
+    });
 
-});
+
+    var options = {
+        method: 'GET',
+        url: customer_url,
+        strictSSL: false,
+        headers: {}
+    };
+
+    // Add Headers like Host
+    if (_apis.customer.headers) {
+        options.headers = _apis.customer.headers;
+    }
+
+    //if (_apis.customer.require.indexOf("client_secret") != -1) options.headers["X-IBM-Client-Secret"] = _apis.client_secret;
+
+    return new Promise(function(fulfill) {
+
+        // Get OAuth Access Token, if needed
+        if (_apis.customer.require.indexOf("oauth") != -1) {
+            options.headers.Authorization = req.headers.authorization;
+            fulfill({
+                options: options,
+                res: res
+            });
+        } else fulfill({
+            options: options,
+            res: res
+        });
+    });
+}
 
 function setCustomerOptionsFromCustomerMicroService(req, res) {
   var form_body = req.body;
@@ -75,47 +134,29 @@ function setCustomerOptionsFromCustomerMicroService(req, res) {
 
 }
 
-function setCustomerOptions(req, res) {
-  var form_body = req.body;
-  //console.log("Browser request data:\n" + JSON.stringify(form_body));
-  console.log("Form data:\n" + JSON.stringify(form_body));
-
-  var customer_url = api_url.stringify({
-    protocols: _apis.customer.protocol,
-    host: _apis.customer.service_name,
-    api: _apis.customer.base_path,
-    operation: "userinfo"
-  });
-
-  var basicAuthToken = _authServer.client_id + ":" + _authServer.client_secret;
-  var buffer = new Buffer(basicAuthToken);
-  var basicToken = 'Basic ' + buffer.toString('base64');
-
-  var getCustomer_options = {
-    method: 'GET',
-    url: customer_url,
-    strictSSL: false,
-    headers: {},
-  };
-  return new Promise(function (fulfill) {
-    // Get OAuth Access Token, if needed
-    if (_apis.customer.require.indexOf("oauth") != -1) {
-      // If already logged in, add token to request
-      getCustomer_options.headers.Authorization = req.headers.authorization;
-      fulfill({
-        options: getCustomer_options,
-        res: res
-      });
-    }
-    else {
-        fulfill({
-            options: getCustomer_options,
-            res: res
-        });
-    }
-  });
-
-}
+// MicroProfile
+// function setCustomerOptions(req, res) {
+//   var form_body = req.body;
+//   //console.log("Browser request data:\n" + JSON.stringify(form_body));
+//   console.log("Form data:\n" + JSON.stringify(form_body));
+//
+//   var customer_url = api_url.stringify({
+//     protocols: _apis.customer.protocol,
+//     host: _apis.customer.service_name,
+//     api: _apis.customer.base_path,
+//     operation: "userinfo"
+//   });
+//
+//   var basicAuthToken = _authServer.client_id + ":" + _authServer.client_secret;
+//   var buffer = new Buffer(basicAuthToken);
+//   var basicToken = 'Basic ' + buffer.toString('base64');
+//
+//   var getCustomer_options = {
+//     method: 'GET',
+//     url: customer_url,
+//     strictSSL: false,
+//     headers: {},
+//   };
 
 function sendApiReq(function_input) {
   var options = function_input.options;

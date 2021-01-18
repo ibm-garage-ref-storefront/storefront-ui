@@ -10,14 +10,14 @@
   "APIs": {
     "catalog": {
       "protocol": "http",
-      "service_name": "host.docker.internal:9082",
+      "service_name": "host.docker.internal:8082",
       "base_path": "/micro",
       "require": [
       ]
     },
     "orders": {
-      "protocol": "https",
-      "service_name": "host.docker.internal:9445",
+      "protocol": "http",
+      "service_name": "host.docker.internal:8085",
       "base_path": "/micro",
       "require": [
         "oauth"
@@ -31,11 +31,11 @@
       ]
     },
     "customerService": {
-      "protocol": "https",
-      "service_name": "host.docker.internal:9446",
+      "protocol": "http",
+      "service_name": "host.docker.internal:8083",
       "base_path": "/micro",
       "paths": {
-        "customer": "/customer"
+        "customer": "/customer/search"
       },
       "require": [
           "oauth"
@@ -43,11 +43,11 @@
       "redirect_url": "http://localhost"
     },
     "customer": {
-      "protocol": "https",
-      "service_name": "host.docker.internal:9444",
-      "base_path": "/oidc/endpoint/OP",
+      "protocol": "http",
+      "service_name": "host.docker.internal:8083",
+      "base_path": "/micro",
       "paths": {
-        "userinfo": "/userinfo"
+        "customer": "/customer/search"
       },
       "require": [
         "oauth"
@@ -55,9 +55,9 @@
       "redirect_url": "http://localhost"
     },
     "oauth20": {
-      "protocol": "https",
-      "service_name": "host.docker.internal:9444",
-      "base_path": "/oidc/endpoint/OP",
+      "protocol": "http",
+      "service_name": "host.docker.internal:8084",
+      "base_path": "/oauth",
       "paths": {
         "authz": "/authorize",
         "token": "/token"

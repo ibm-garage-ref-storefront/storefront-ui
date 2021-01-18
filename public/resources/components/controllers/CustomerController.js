@@ -4,19 +4,24 @@ console.log("Entering Customer Controller")
 
 $scope.loggedIn = UserInfoService.state.authenticated
 
+console.log("test")
+console.log(UserInfoService.state.accessToken)
+
 BlueAPIService.getCustomerProfile(UserInfoService.state.accessToken, function (response) {
+	  console.log("hey hi")
 		console.log("Customer Profile Result" + response)
 		$scope.customerName = response.data;
 	}, function (error){
 		console.log("Customer Profile Error: " + error);
 });
 
-BlueAPIService.getCustomerProfileWithMicroService(UserInfoService.state.accessToken, function (response) {
-	  console.log("Customer Profile Info" + response)
-		$scope.customerInfo = response.data;
-		}, function (error){
-		console.log("Customer Profile Error: " + error);
-});
+// MicroProfile Specific
+// BlueAPIService.getCustomerProfileWithMicroService(UserInfoService.state.accessToken, function (response) {
+// 	  console.log("Customer Profile Info" + response)
+// 		$scope.customerInfo = response.data;
+// 		}, function (error){
+// 		console.log("Customer Profile Error: " + error);
+// });
 
 var catalogMap = {};
 

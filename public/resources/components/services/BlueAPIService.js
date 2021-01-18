@@ -73,8 +73,15 @@ app.service('BlueAPIService',['$http', 'CONFIG', '$base64', function($http, CONF
 			},
 			loginUser : function(parameters, successCallback, errorCallback) {
 				//var restUrl = CONFIG["Auth-Server"].protocol + '://' + CONFIG["Auth-Server"].host + '/oauth/token'
-				var restUrl = 'oauth/token'
-				var requestType = 'POST';
+				console.table(CONFIG["APIs"].oauth20);
+				const protocol=CONFIG["APIs"].oauth20.protocol;
+				const host = CONFIG["APIs"].oauth20.service_name
+				const restUrl=protocol + '://' + host + '/oauth/token'
+				console.log('restURL ' + restUrl);
+				const requestType = 'POST';
+        // MicroProfile
+				// var restUrl = 'oauth/token'
+				// var requestType = 'POST';
 				invokeService(restUrl, requestType, parameters, successCallback, errorCallback);
 			},
 			buyItems : function(access_token, parameters, successCallback, errorCallback) {
@@ -88,8 +95,17 @@ app.service('BlueAPIService',['$http', 'CONFIG', '$base64', function($http, CONF
 				invokeService(restUrl, requestType, parameters, successCallback, errorCallback, access_token);
 			},
 			getCustomerProfile : function(access_token, successCallback, errorCallback) {
-				var restUrl = 'customer/userinfo';
-				var requestType = 'GET_AUTH';
+				// console.table(CONFIG["APIs"].oauth20);
+				console.log('here');
+				const protocol=CONFIG["APIs"].customer.protocol;
+				const host = CONFIG["APIs"].customer.service_name
+				const restUrl=protocol + '://' + host + '/customer'
+				console.log('restURL ' + restUrl);
+
+				const requestType = 'GET_AUTH';
+				// MicroProfile
+				// var restUrl = 'customer/userinfo';
+				// var requestType = 'GET_AUTH';
 				invokeService(restUrl, requestType, null, successCallback, errorCallback, access_token);
 			},
       getCustomerProfileWithMicroService : function(access_token, successCallback, errorCallback) {

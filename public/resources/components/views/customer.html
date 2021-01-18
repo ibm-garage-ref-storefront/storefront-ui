@@ -23,21 +23,21 @@
               <img style="border-radius: 50%" ng-src="{{customerInfo.image || 'images/common/ibmprofile.jpg'}}" class="pure-img">
         </div>
         <div class="content" style="padding-top:20px;">
-            <span class="profileColor">First Name: </span><span class="profileColor">{{customerInfo.docs[0].firstName || 'N/A'}}</span>
+            <span class="profileColor">First Name: </span><span class="profileColor">{{customerName.docs[0].firstName || 'N/A'}}</span>
         </div>
         <div class="content">
-            <span class="profileColor">Last Name: </span><span class="profileColor">{{customerInfo.docs[0].lastName || 'N/A'}}</span>
+            <span class="profileColor">Last Name: </span><span class="profileColor">{{customerName.docs[0].lastName || 'N/A'}}</span>
         </div>
         <div class="content">
-            <span class="profileColor">Email: </span><span class="profileColor">{{customerInfo.docs[0].email || 'N/A'}}</span>
+            <span class="profileColor">Email: </span><span class="profileColor">{{customerName.docs[0].email || 'N/A'}}</span>
         </div>
         <div class="content">
-            <span class="profileColor">Username: </span><span class="profileColor">{{customerInfo.docs[0].username || 'N/A'}}</span>
+            <span class="profileColor">Username: </span><span class="profileColor">{{customerName.docs[0].username || 'N/A'}}</span>
         </div>
       </div>
       <div class="pure-u-1">
         <div class="content">
-            <span class="profileColor">{{customerInfo.response}}</span>
+            <span class="profileColor">{{customerName.response}}</span>
         </div>
       </div>
     </div>
