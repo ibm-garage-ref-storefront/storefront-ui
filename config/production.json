@@ -5,19 +5,19 @@
   },
   "Auth-Server": {
     "client_id":"bluecomputeweb",
-    "client_secret":"bluecomputewebs3cret"
+    "client_secret":"aafc6b87-9805-4a04-beb1-38746428405e"
   },
   "APIs": {
     "catalog": {
       "protocol": "http",
-      "service_name": "host.docker.internal:9082",
+      "service_name": "host.docker.internal:8083",
       "base_path": "/micro",
       "require": [
       ]
     },
     "orders": {
-      "protocol": "https",
-      "service_name": "host.docker.internal:9445",
+      "protocol": "http",
+      "service_name": "host.docker.internal:8086",
       "base_path": "/micro",
       "require": [
         "oauth"
@@ -31,8 +31,8 @@
       ]
     },
     "customerService": {
-      "protocol": "https",
-      "service_name": "host.docker.internal:9446",
+      "protocol": "http",
+      "service_name": "host.docker.internal:8087",
       "base_path": "/micro",
       "paths": {
         "customer": "/customer"
@@ -43,9 +43,9 @@
       "redirect_url": "http://localhost"
     },
     "customer": {
-      "protocol": "https",
-      "service_name": "host.docker.internal:9444",
-      "base_path": "/oidc/endpoint/OP",
+      "protocol": "http",
+      "service_name": "host.docker.internal:8085",
+      "base_path": "/auth/realms/sfrealm/protocol/openid-connect",
       "paths": {
         "userinfo": "/userinfo"
       },
@@ -55,11 +55,11 @@
       "redirect_url": "http://localhost"
     },
     "oauth20": {
-      "protocol": "https",
-      "service_name": "host.docker.internal:9444",
-      "base_path": "/oidc/endpoint/OP",
+      "protocol": "http",
+      "service_name": "host.docker.internal:8085",
+      "base_path": "/auth/realms/sfrealm/protocol/openid-connect",
       "paths": {
-        "authz": "/authorize",
+        "authz": "/auth",
         "token": "/token"
       },
       "grant_types": [
