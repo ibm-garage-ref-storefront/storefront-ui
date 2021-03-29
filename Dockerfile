@@ -1,44 +1,20 @@
-FROM node:6-alpine
+FROM registry.access.redhat.com/ubi8/nodejs-12:1-36
 
-# Install Extra Packages
-RUN apk --update add git less openssh jq bash bc ca-certificates curl && \
-    rm -rf /var/lib/apt/lists/* && \
-    rm -rf /var/cache/apk/
+USER root
 
-# Set Environment Variables
-ENV NPM_CONFIG_PREFIX=/home/blue/.npm-global
-ENV PATH=$PATH:/home/blue/.npm-global/bin
+RUN useradd --uid 1000 --gid 0 --shell /bin/bash --create-home node
+
+WORKDIR "/project/user-app"
+
+COPY package.json .
+RUN npm install --production  && chown -hR node:0 /project  && chmod -R g=u /project
+
+COPY . .
+
 ENV NODE_ENV production
 
-# Create app directory
-ENV APP_HOME=/app
-RUN mkdir -p $APP_HOME/node_modules $APP_HOME/public/resources/bower_components
-WORKDIR $APP_HOME
+USER node
 
-# Copy package.json, bower.json, and .bowerrc files
-COPY StoreWebApp/package*.json StoreWebApp/bower.json StoreWebApp/.bowerrc ./
+EXPOSE 3000 3000
 
-# Create user, chown, and chmod
-RUN adduser -u 2000 -G root -D blue \
-	&& chown -R 2000:0 $APP_HOME
-
-# Install Dependencies
-#USER 2000
-RUN npm install
-RUN ./node_modules/.bin/bower install --allow-root /app
-#USER 0
-
-COPY startup.sh startup.sh
-COPY StoreWebApp ./
-
-# Chown
-RUN chown -R 2000:0 $APP_HOME
-
-# Cleanup packages
-RUN apk del git less openssh
-
-# Switch back to non-root
-USER 2000
-
-EXPOSE 8000 9000
-ENTRYPOINT ["./startup.sh"]
+CMD ["npm", "start"]
