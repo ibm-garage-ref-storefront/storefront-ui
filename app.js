@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var index = require('./routes/index');
+var health = require('./routes/healthcheck');
 var catalog = require('./routes/catalog');
 var review = require('./routes/review');
 var customer = require('./routes/customer');
@@ -35,6 +36,7 @@ app.use(session({
 }));
 
 app.use('/', index);
+app.use('/health', health);
 app.use('/catalog', catalog);
 app.use('/customer', customer);
 app.use('/review', review);
@@ -54,7 +56,7 @@ const healthcheck_options = {
   timeout: '5s',
   returnJSON: true
 };
-app.use('/health', healthchecks(healthcheck_options));
+app.use('/_healthchecks', healthchecks(healthcheck_options));
 
 
 // catch 404 and forward to error handler

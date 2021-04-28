@@ -22,14 +22,14 @@ data:
       "APIs": {
         "catalog": {
           "protocol": "http",
-          "service_name": "catalog-ms-quarkus:8080",
+          "service_name": "catalog-ms-quarkus:80",
           "base_path": "/micro",
           "require": [
           ]
         },
         "orders": {
           "protocol": "http",
-          "service_name": "orders-ms-quarkus:8080",
+          "service_name": "orders-ms-quarkus:80",
           "base_path": "/micro",
           "require": [
             "oauth"
@@ -44,7 +44,7 @@ data:
         },
         "customerService": {
           "protocol": "http",
-          "service_name": "customer-ms-quarkus:8080",
+          "service_name": "customer-ms-quarkus:80",
           "base_path": "/micro",
           "paths": {
             "customer": "/customer"
