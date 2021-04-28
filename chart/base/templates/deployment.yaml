@@ -43,7 +43,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: config-volume
-              mountPath: /config
+              mountPath: /project/user-app/config
           ports:
             - name: http
               containerPort: {{ .Values.image.port }}
