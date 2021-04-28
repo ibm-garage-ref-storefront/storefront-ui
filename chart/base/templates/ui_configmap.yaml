@@ -9,6 +9,81 @@ data:
     \   @font-face\r\n\r\n\r\n# Check a sub-domain\r\n#//some-subdomain.some-site.com/reviews
     Review Data\r\n\r\n# Check HTTP access, and for text content\r\n# http://localhost:8000\tBlueCompute
     Store!\r\n# http://localhost:8000/inventory/\tDayton Meat Chopper\r\n"
+  default.json: |
+    {
+      "Application": {
+        "cluster_name": "",
+        "region": ""
+      },
+      "Auth-Server": {
+        "client_id":"bluecomputeweb",
+        "client_secret":"58f799cc-4aea-4884-b83a-b8174876c37a"
+      },
+      "APIs": {
+        "catalog": {
+          "protocol": "http",
+          "service_name": "catalog-ms-quarkus:80",
+          "base_path": "/micro",
+          "require": [
+          ]
+        },
+        "orders": {
+          "protocol": "http",
+          "service_name": "orders-ms-quarkus:80",
+          "base_path": "/micro",
+          "require": [
+            "oauth"
+          ]
+        },
+        "review": {
+          "protocol": "http",
+          "base_path": "/api",
+          "require": [
+            "oauth"
+          ]
+        },
+        "customerService": {
+          "protocol": "http",
+          "service_name": "customer-ms-quarkus:80",
+          "base_path": "/micro",
+          "paths": {
+            "customer": "/customer"
+          },
+          "require": [
+              "oauth"
+          ],
+          "redirect_url": "http://localhost"
+        },
+        "customer": {
+          "protocol": "http",
+          "service_name": "https://keycloak-keycloak.mq-devops-6ccd7f378ae819553d37d5f2ee142bd6-0000.par01.containers.appdomain.cloud",
+          "base_path": "/auth/realms/sfrealm/protocol/openid-connect",
+          "paths": {
+            "userinfo": "/userinfo"
+          },
+          "require": [
+            "oauth"
+          ],
+          "redirect_url": "http://localhost"
+        },
+        "oauth20": {
+          "protocol": "http",
+          "service_name": "https://keycloak-keycloak.mq-devops-6ccd7f378ae819553d37d5f2ee142bd6-0000.par01.containers.appdomain.cloud",
+          "base_path": "/auth/realms/sfrealm/protocol/openid-connect",
+          "paths": {
+            "authz": "/auth",
+            "token": "/token"
+          },
+          "grant_types": [
+            "password"
+          ],
+          "scopes": [
+            "bluecompute"
+          ],
+          "redirect_url": "http://localhost"
+        }
+      }
+    }
   production.json: |
     {
       "Application": {
