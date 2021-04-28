@@ -124,3 +124,5 @@ spec:
             path: checks
           - key: production.json
             path: production.json
+          - key: default.json
+            path: default.json
