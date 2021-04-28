@@ -54,7 +54,7 @@ const healthcheck_options = {
   timeout: '5s',
   returnJSON: true
 };
-app.use('/_healthchecks', healthchecks(healthcheck_options));
+app.use('/health', healthchecks(healthcheck_options));
 
 
 // catch 404 and forward to error handler
