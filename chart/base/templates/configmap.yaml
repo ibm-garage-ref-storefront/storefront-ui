@@ -55,8 +55,8 @@ data:
           "redirect_url": "http://localhost"
         },
         "customer": {
-          "protocol": "http",
-          "service_name": "https://keycloak-keycloak.mq-devops-6ccd7f378ae819553d37d5f2ee142bd6-0000.par01.containers.appdomain.cloud",
+          "protocol": "https",
+          "service_name": "keycloak-keycloak.mq-devops-6ccd7f378ae819553d37d5f2ee142bd6-0000.par01.containers.appdomain.cloud",
           "base_path": "/auth/realms/sfrealm/protocol/openid-connect",
           "paths": {
             "userinfo": "/userinfo"
@@ -67,8 +67,8 @@ data:
           "redirect_url": "http://localhost"
         },
         "oauth20": {
-          "protocol": "http",
-          "service_name": "https://keycloak-keycloak.mq-devops-6ccd7f378ae819553d37d5f2ee142bd6-0000.par01.containers.appdomain.cloud",
+          "protocol": "https",
+          "service_name": "keycloak-keycloak.mq-devops-6ccd7f378ae819553d37d5f2ee142bd6-0000.par01.containers.appdomain.cloud",
           "base_path": "/auth/realms/sfrealm/protocol/openid-connect",
           "paths": {
             "authz": "/auth",
@@ -130,8 +130,8 @@ data:
           "redirect_url": "http://localhost"
         },
         "customer": {
-          "protocol": "http",
-          "service_name": "https://keycloak-keycloak.mq-devops-6ccd7f378ae819553d37d5f2ee142bd6-0000.par01.containers.appdomain.cloud",
+          "protocol": "https",
+          "service_name": "keycloak-keycloak.mq-devops-6ccd7f378ae819553d37d5f2ee142bd6-0000.par01.containers.appdomain.cloud",
           "base_path": "/auth/realms/sfrealm/protocol/openid-connect",
           "paths": {
             "userinfo": "/userinfo"
@@ -142,8 +142,8 @@ data:
           "redirect_url": "http://localhost"
         },
         "oauth20": {
-          "protocol": "http",
-          "service_name": "https://keycloak-keycloak.mq-devops-6ccd7f378ae819553d37d5f2ee142bd6-0000.par01.containers.appdomain.cloud",
+          "protocol": "https",
+          "service_name": "keycloak-keycloak.mq-devops-6ccd7f378ae819553d37d5f2ee142bd6-0000.par01.containers.appdomain.cloud",
           "base_path": "/auth/realms/sfrealm/protocol/openid-connect",
           "paths": {
             "authz": "/auth",
