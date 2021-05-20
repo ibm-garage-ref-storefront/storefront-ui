@@ -5,7 +5,7 @@
   },
   "Auth-Server": {
     "client_id":"bluecomputeweb",
-    "client_secret":"aafc6b87-9805-4a04-beb1-38746428405e"
+    "client_secret":"replace_me_with_client_secret"
   },
   "APIs": {
     "catalog": {
