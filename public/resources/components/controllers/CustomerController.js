@@ -18,6 +18,14 @@ BlueAPIService.getCustomerProfileWithMicroService(UserInfoService.state.accessTo
 		console.log("Customer Profile Error: " + error);
 });
 
+BlueAPIService.getCustomerOrderPrice(UserInfoService.state.accessToken, function (response) {
+		console.log("Get Customer Orders Price" + response)
+		var priceInfo = response.data;
+		$scope.priceInfo = priceInfo;
+}, function (error){
+		console.log("Get Price Info Error: " + error);
+});
+
 var catalogMap = {};
 
 BlueAPIService.getCatalog(function (response) {
@@ -35,7 +43,8 @@ BlueAPIService.getCatalog(function (response) {
 								let o = ordersData[i];
 								console.log(o.date);
 								console.log(o.itemId);
-								ordersInfo.push({date: o.date, itemId: o.itemId, itemName: catalogMap[o.itemId], count: o.count});
+								console.log(o.price)
+								ordersInfo.push({date: o.date, itemId: o.itemId, itemName: catalogMap[o.itemId], count: o.count, price: o.price});
 						}
 						$scope.ordersInfo = ordersInfo;
 				}, function (error){
@@ -45,4 +54,9 @@ BlueAPIService.getCatalog(function (response) {
 		 console.log("Get Catalog Error: " + error);
 
 		});
+
+$scope.checkout = function () {
+			$location.path("/payments");  
+		}
+
 }]);
