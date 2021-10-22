@@ -39,8 +39,12 @@ app.controller('ItemController', ['$scope','$routeParams','$location','$route','
 	});
 
 	$scope.buy = function () {
+		  console.log($scope.itemQuantity)
+			console.log($scope.item.id)
+			console.log($scope.item.price)
 			$scope.payload = {'count':$scope.itemQuantity,
-												'itemId':$scope.item.id
+												'itemId':$scope.item.id,
+												'price':$scope.item.price
 											}
 
 			BlueAPIService.buyItems(UserInfoService.state.accessToken, $scope.payload, function (response) {

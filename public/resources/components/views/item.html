@@ -6,7 +6,7 @@
       <li class="pure-menu-item"><a class="pure-menu-link" href="#!/">Home</a></li>
       <li class="pure-menu-item pure-menu-selected"><a class="pure-menu-link" href="#!/catalog">Catalog</a></li>
       <li ng-show="!loggedIn" class="pure-menu-item"><a class="pure-menu-link" href="#!/login">Log In</a></li>
-      <li ng-show="loggedIn" class="pure-menu-item"><a class="pure-menu-link" href="#!/customer">Profile</a></li>
+      <li ng-show="loggedIn" class="pure-menu-item"><a class="pure-menu-link" href="#!/customer">Orders</a></li>
       <li ng-show="loggedIn" class="pure-menu-item"><a class="pure-menu-link" href="#!/logout">Logout</a></li>
     </ul>
   </div>
@@ -33,14 +33,14 @@
                       <option>4</option>
                       <option>5</option>
                   </select>
-                  <button type="submit"  ng-click="buy()" class="pure-button pure-button-primary">Buy</button>
+                  <button type="submit"  ng-click="buy()" class="pure-button pure-button-primary">Add to Cart</button>
               </fieldset>
             </form>
             <div ng-show="success" class="is-center" style="color: green;white-space: nowrap;">
-              * Your order was placed successfully!
+              * Your item is successfully added to the cart!
             </div>
             <div ng-show="fail" class="is-center" style="color: red;white-space: nowrap;">
-              * Your order was not processed, please try again.
+              * Your item is not added to the cart, please try again.
             </div>
         </div>
       </div>

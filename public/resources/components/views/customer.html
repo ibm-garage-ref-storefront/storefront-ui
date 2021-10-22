@@ -6,7 +6,7 @@
       <li class="pure-menu-item"><a class="pure-menu-link" href="#!/">Home</a></li>
       <li class="pure-menu-item"><a class="pure-menu-link" href="#!/catalog">Catalog</a></li>
       <li ng-show="!loggedIn" class="pure-menu-item"><a class="pure-menu-link" href="#!/login">Log In</a></li>
-      <li ng-show="loggedIn" class="pure-menu-item pure-menu-selected"><a class="pure-menu-link" href="#!/customer">Profile</a></li>
+      <li ng-show="loggedIn" class="pure-menu-item pure-menu-selected"><a class="pure-menu-link" href="#!/customer">Orders</a></li>
       <li ng-show="loggedIn" class="pure-menu-item"><a class="pure-menu-link" href="#!/logout">Logout</a></li>
     </ul>
   </div>
@@ -52,6 +52,7 @@
             <th>Date</th>
             <th>Item</th>
             <th>Quantity</th>
+            <th>Price Per Unit</th>
           </tr>
         </thead>
         <tbody>
@@ -59,9 +60,13 @@
              <td>{{ order.date | date: "yyyy-MM-dd HH:mm:ss" }}</td>
              <td><a href="#!/item/{{order.itemId}}" class="pure-menu-link">{{ order.itemName}}</a></td>
              <td>{{ order.count }}</td>
+             <td>{{ order.price }}</td>
           </tr>
         </tbody>
       </table>
+      <p>Total Price: <b>{{ priceInfo.price }}</b></p>
+      <br>
+      <button type="submit"  ng-click="checkout()" class="pure-button pure-button-primary">Check Out</button>
     </div>
   </div>
 </div>
