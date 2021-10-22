@@ -15,6 +15,7 @@ var review = require('./routes/review');
 var customer = require('./routes/customer');
 var orders = require('./routes/orders');
 var auth = require('./routes/auth');
+var payments = require('./routes/payments')
 
 var app = express();
 
@@ -40,6 +41,7 @@ app.use('/customer', customer);
 app.use('/review', review);
 app.use('/oauth', auth);
 app.use('/order', orders);
+app.use('/payments', payments);
 
 app.use('/', express.static('public/resources'));
 app.use('/', express.static('public/stylesheets'));

@@ -55,6 +55,10 @@ app.config(['$routeProvider', function($routeProvider) {
        templateUrl : baseUrl + 'customer.html',
        controller: 'CustomerController'
     })
+    .when('/payments', {
+       templateUrl : baseUrl + 'payments.html',
+       controller: 'PaymentsController'
+    })
     .otherwise({
         redirectTo: '/home'
       });
