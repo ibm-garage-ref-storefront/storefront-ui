@@ -1,0 +1,35 @@
+<html >
+<head>
+<meta charset="UTF-8">
+<style>
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+    <img style="width:45px;height:45px;float:left;" ng-src="images/common/case_logo.png" class="pure-img">
+    <a class="pure-menu-heading" ng-href="https://www.ibm.com/devops/method/category/architectures/" target="_blank">IBM Cloud Architecture</a>
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item"><a class="pure-menu-link" href="#!/">Home</a></li>
+      <li class="pure-menu-item pure-menu-selected"><a class="pure-menu-link" href="#!/catalog">Catalog</a></li>
+      <li ng-show="!loggedIn" class="pure-menu-item"><a class="pure-menu-link" href="#!/login">Log In</a></li>
+      <li ng-show="loggedIn" class="pure-menu-item"><a class="pure-menu-link" href="#!/otp">Orders</a></li>
+      <li ng-show="loggedIn" class="pure-menu-item"><a class="pure-menu-link" href="#!/logout">Logout</a></li>
+    </ul>
+  </div>
+</div>
+<h2>To access the profile and order information, please enter your One-Time-Password</h2>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form>
+        <label for="OTP">OTP</label>
+        <input type="text" id="OTP" name="OTP" ng-model="otp">
+        <button type="submit"  ng-click="submit()" class="pure-button pure-button-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+<p>To access the profile and order information, please enter your One-Time-Password</p>
+</body>
+</html>
