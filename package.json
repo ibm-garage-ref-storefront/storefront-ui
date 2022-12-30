@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "jest-sonar-reporter": "^2.0.0",
-    "mocha": "7.1.2",
+    "mocha": "10.2.0",
     "sonarqube-scanner": "^2.6.0",
     "supertest": "^4.0.2"
   }
